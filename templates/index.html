@@ -1,140 +1,220 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>黃柏彰的個人網頁</title>
-  
-  <!-- 引入 Google 字體 -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
     body {
       font-family: 'Poppins', sans-serif;
       margin: 0;
-      padding: 0;
-      height: 100vh;
-      background: linear-gradient(135deg, #2c3e50, #34495e); /* 深藍色到灰色漸層 */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
+      background: linear-gradient(135deg, #2c3e50, #34495e);
       color: #fff;
     }
-
-    .content {
-      max-width: 800px;
-      padding: 40px;
-      background: rgba(0, 0, 0, 0.6); /* 半透明黑色背景 */
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    }
-
-    h1 {
-      font-size: 48px;
-      margin-bottom: 10px;
-      font-weight: 600;
-      color: #fff;
-    }
-
-    .subtitle {
-      font-size: 20px;
-      margin-bottom: 20px;
-      color: #bbb;
-    }
-
-    p {
-      font-size: 18px;
-      margin: 15px 0;
-      text-align: left;
-      color: #ddd;
-    }
-
-    .contact-info {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin-top: 20px;
-    }
-
-    .contact-info p {
-      font-size: 16px;
-      margin: 5px 0;
-    }
-
-    .contact-info p strong {
-      color: #fff;
-    }
-
-    .btn {
-      background-color: #4CAF50;
-      color: white;
-      padding: 10px 20px;
-      font-size: 16px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      text-decoration: none;
-      margin-top: 20px;
-      display: inline-block;
-    }
-
-    .btn:hover {
-      background-color: #45a049;
-    }
-
-    /* 主選單 */
     nav {
-      position: absolute;
+      position: fixed;
       top: 20px;
       right: 20px;
+      z-index: 1000;
     }
-
     nav ul {
       list-style: none;
       display: flex;
       gap: 20px;
+      margin: 0;
+      padding: 0;
     }
-
-    nav ul li {
-      display: inline-block;
-    }
-
     nav ul li a {
       text-decoration: none;
       color: #fff;
       font-weight: 600;
       font-size: 16px;
     }
-
     nav ul li a:hover {
       color: #4CAF50;
+    }
+    section {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+      box-sizing: border-box;
+      text-align: center;
+    }
+    .content-box {
+      max-width: 1000px;
+      background: rgba(0, 0, 0, 0.6);
+      padding: 60px 40px;
+      border-radius: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .profile-pic {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    h1 {
+      font-size: 64px;
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-size: 28px;
+      color: #bbb;
+      margin-top: 0;
+    }
+    h3 {
+      margin-top: 30px;
+      font-size: 22px;
+    }
+    p {
+      color: #ddd;
+      text-align: left;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+    ul {
+      text-align: left;
+      padding-left: 20px;
+      color: #ddd;
+    }
+    .subtitle {
+      font-size: 20px;
+      margin-bottom: 20px;
+      color: #bbb;
+      text-align: center;
+    }
+    .contact-info {
+      text-align: left;
+    }
+    .contact-info p {
+      margin: 5px 0;
+    }
+    @media (max-width: 768px) {
+      .resume-flex {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- 右上角的主選單 -->
   <nav>
     <ul>
-      <li><a href="#">首頁</a></li>
-      <li><a href="#">興趣測驗結果</a></li>
-      <li><a href="#">未來職涯方向</a></li>
-      <li><a href="#">求職履歷</a></li>
+      <li><a href="#home">首頁</a></li>
+      <li><a href="#interest">興趣測驗</a></li>
+      <li><a href="#career">職涯方向</a></li>
+      <li><a href="#resume">履歷</a></li>
     </ul>
   </nav>
 
-  <div class="content">
-    <h1>黃柏彰</h1>
-    <p class="subtitle">HUANG, BO ZHANG</p>
-
-    <div class="contact-info">
-      <p><strong>學校：</strong>靜宜大學</p>
-      <p><strong>IG：</strong>bangson1022</p>
-      <p><strong>TEL：</strong>0910317501</p>
-      <p><strong>Email：</strong>benson921022@gmail.com</p>
+  <!-- 首頁 -->
+  <section id="home">
+    <div class="content-box">
+      <img src="static/myphoto.jpg" alt="我的照片" class="profile-pic" />
+      <h1>黃柏彰</h1>
+      <h2 class="subtitle">HUANG, BO ZHANG</h2>
+      <div class="contact-info">
+        <p><strong>學校：</strong>靜宜大學</p>
+        <p><strong>IG：</strong>bangson1022</p>
+        <p><strong>TEL：</strong>0910317501</p>
+        <p><strong>Email：</strong>benson921022@gmail.com</p>
+      </div>
     </div>
+  </section>
 
-    <a href="mailto:benson921022@gmail.com" class="btn">E-mail</a>
-  </div>
+  <!-- 興趣測驗 -->
+  <section id="interest">
+    <div class="content-box">
+      <h2>興趣測驗結果</h2>
+      <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <img src="static/interestphoto.jpg" alt="興趣測驗圖片" style="max-width: 300px; width: 100%; height: auto; border-radius: 10px;" />
+        <div style="flex-grow: 1; text-align: left;">
+          <p>根據我的興趣測驗結果，我偏好實用性、邏輯思考與解決問題，喜歡探索新知，並傾向在有挑戰性與技術導向的工作中發展。</p>
+          <p>興趣類型包含：實作型（Realistic）、研究型（Investigative）、社會型（Social）。</p>
+          <p>我對於分析數據、解決實際問題、協作的工作有強烈的興趣，並且傾向在資訊管理與技術領域發展，尤其是與資料庫管理、資訊系統設計等相關的領域。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 職涯方向 -->
+  <section id="career">
+    <div class="content-box">
+      <h2>未來職涯方向</h2>
+      <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+        <img src="static/maltese.jpg" alt="未來職涯方向圖片" style="max-width: 300px; width: 100%; height: auto; border-radius: 10px;" />
+        <div style="flex-grow: 1; text-align: left;">
+          <p>我期望未來能在資訊管理領域發展，尤其是系統設計、數據管理、雲端運算、與資料庫管理等方向。</p>
+          <p>我希望能在跨國企業或科技公司中擔任資訊系統分析師、資料庫管理師、或 IT 顧問等職位，協助企業提升運營效率，並進行系統優化與創新。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 履歷 -->
+  <section id="resume">
+    <div class="content-box resume-flex" style="display: flex; gap: 40px; align-items: flex-start; flex-wrap: wrap;">
+      <!-- 左側文字內容 -->
+      <div style="flex: 1 1 500px; min-width: 300px;">
+        <h2>求職履歷</h2>
+
+        <h3>基本資料</h3>
+        <p><strong>姓名：</strong>黃柏彰</p>
+        <p><strong>學校：</strong>靜宜大學資訊管理學系</p>
+        <p><strong>學歷：</strong>目前就讀靜宜大學資訊管理學系</p>
+
+        <h3>技能與專業知識</h3>
+        <ul>
+          <li><strong>程式語言：</strong>Python、JavaScript、HTML</li>
+          <li><strong>軟體開發框架：</strong>Flask、Django、Node.js</li>
+          <li><strong>資訊系統設計：</strong>ERP、CRM、雲端應用系統</li>
+          <li><strong>資料分析工具：</strong>Excel、Power BI、Tableau、R 語言</li>
+          <li><strong>版本控制工具：</strong>Git、GitHub、GitLab</li>
+          <li><strong>專案管理工具：</strong>Jira、Trello，熟悉 Agile 開發流程</li>
+        </ul>
+
+        <h3>專業經歷</h3>
+        <ul>
+          <li><strong>大學專題開發：</strong>與團隊合作開發基於雲端的庫存管理系統，使用 Python 與 Flask 搭配 MySQL 資料庫。</li>
+          <li><strong>資訊管理實習：</strong>於 XYZ 公司實習，協助設計與維護內部管理系統，並運用 SQL 與 Python 進行資料處理與報表分析。</li>
+          <li><strong>網站設計與開發：</strong>設計多個學生專案網站，使用 HTML、CSS、JavaScript 建構前端介面，後端採 Flask 架構。</li>
+          <li><strong>資料庫設計與優化：</strong>參與資料庫管理專案，負責資料表設計、資料清洗與查詢優化，查詢效率提升約 30%。</li>
+        </ul>
+
+        <h3>未來職業目標</h3>
+        <p>
+          我希望未來能在資訊管理或 IT 領域持續精進，特別是在資料管理、雲端運算、系統分析與開發等方向。
+          期望能進入大型企業或跨國公司，擔任資料庫管理師、系統分析師或 IT 顧問，協助企業優化流程並提升效率。
+        </p>
+
+        <h3>興趣與志工經歷</h3>
+        <ul>
+          <li><strong>興趣：</strong>熱愛撰寫程式、關注科技趨勢與新創技術。</li>
+          <li><strong>志工經歷：</strong>參與數位志工活動，推動科技教育，協助規劃社區數位學習資源。</li>
+        </ul>
+      </div>
+
+      <!-- 右側圖片 -->
+      <div style="flex: 0 0 300px; text-align: center;">
+        <img src="static/selfphoto.jpg" alt="自我介紹照片" style="max-width: 100%; height: auto; border-radius: 12px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);" />
+      </div>
+    </div>
+  </section>
 </body>
 </html>
